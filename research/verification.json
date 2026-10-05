@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-05",
+  "source_sha256": "52f4837df40e69476a82bd523afb38ef676f80e6b75d2147d93a7c187a8e8d5e",
+  "pdf_sha256": "6776fc56787a08797fcfa9699226542bcc378d5ba011388b8733b4e582201e03",
+  "pdf_pages": 33,
+  "pdf_path": "output/pdf/system_one_statistics_survey_english.pdf",
+  "references": 50,
+  "cited_keys": 50,
+  "labels": 62,
+  "evidence_rows": 63,
+  "search_log_rows": 46,
+  "preprint_audit_rows": 10,
+  "numeric_claim_rows": 23,
+  "provenance_rows": 9,
+  "dataset_overlap_rows": 6,
+  "missing_citations": [],
+  "unused_references": [],
+  "missing_cross_references": [],
+  "worked_example_groups": [
+    "adaptive_pilot",
+    "allocation",
+    "classification",
+    "clustering",
+    "correlated_queries",
+    "inference",
+    "linkage",
+    "ordinal"
+  ],
+  "worked_examples": "Original exact-arithmetic examples and their four numerical tables retained unchanged; separately verified new pilot-tuning identity by finite enumeration",
+  "native_editor_compile": "Saved final source attempted; unavailable: Unable to find standard directories for platform",
+  "local_compile": "Final source compiled with MiKTeX XeLaTeX; finalization build",
+  "local_compile_warnings": [],
+  "visual_review": "Pages 1-30 pixel-identical to the previously inspected version; changed pages 31-33 inspected at 120 dpi; no clipping or overlaps",
+  "text_extraction": "Default pdfplumber word-gap tolerance can concatenate words; parser comparison recorded",
+  "source_checks": "Scientific content and references unchanged; author confirmed final review; declaration and materials-address changes only",
+  "human_scientific_review": "Completed; author explicitly confirmed final review on 2026-10-05",
+  "exact_dataset_item_overlap": "Not recomputed; dataset and protocol overlap documented",
+  "journal_target": "Undecided; Statistics Surveys remains a candidate",
+  "journal_template": "Single-file article; journal-specific packaging pending target selection",
+  "submission_status": "Not submitted",
+  "revision_scope": "Final author review confirmed; draft-status wording removed; versioned GitHub companion archive",
+  "preserved_displayed_math_blocks": 31,
+  "preserved_numerical_tables": 4,
+  "equivalent_variance_display_added": 0,
+  "AI_declaration_review_status": "Author review complete; actual AI assistance and author responsibility disclosed",
+  "manuscript_title": "Semantic Decision Interfaces for Statistical Measurement and Population Estimation: A Methodological Framework",
+  "materials_availability": "https://github.com/LeoAndJellyfish/semantic-decision-interfaces/releases/tag/v1.0.0",
+  "total_displayed_math_blocks": 33,
+  "new_empirical_tables": 1,
+  "real_data_evaluation": {
+    "population_rows": 5574,
+    "positive_labels": 747,
+    "model": "cross-encoder/nli-MiniLM2-L6-H768",
+    "revision": "b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+    "artifact": "onnx/model_quint8_avx2.onnx",
+    "budgets": [
+      200,
+      400
+    ],
+    "pilot_labels": 80,
+    "repetitions_per_budget": 10000,
+    "reference_labels": "Fixed archival labels; no new human annotation",
+    "predictions_sha256": "dd04a2b7f38d0602617798137a5d7d8fd20d8c79954a8e7cab34756aab4e1909",
+    "script_sha256": "623e8562c5e8b15dc9d870cd161dc1c44dceef7897fd4557eca4891f01b4e9dc",
+    "checks": [
+      "Original six simulation summary rows reproduced exactly, including the original random draws",
+      "All 80000 saved replication rows independently reaggregated and manuscript table rounding matched",
+      "Prediction checksum unchanged; updated experiment script checksum matches recorded execution",
+      "Estimated variances checked against full-label SRS and pilot-conditional variances used only for evaluation",
+      "Independent eight-record enumeration: 16 pilots and nine main-stage samples each; conditional mean/variance and expected variance estimator agree within 1.2e-16",
+      "Prior NLI index/truncation checks and exact SRS normal-interval coverage retained"
+    ],
+    "srs_exact_normal_interval_coverage": {
+      "200": 0.9505748935440271,
+      "400": 0.9384295795568235
+    },
+    "verified_methods": 4,
+    "total_estimation_schemes": 5,
+    "saved_replication_rows": 80000,
+    "coefficient_bounds": [
+      -1,
+      1
+    ],
+    "oracle_srs_reference": {
+      "unconstrained_coefficient": -0.14631911912283296,
+      "coefficient_constrained_0_1": 0.0,
+      "unconstrained_variance_ratio_to_labels": 0.9970301176866382,
+      "variance_ratio_constrained_0_1": 1.0,
+      "variances": {
+        "200": 0.0005578929491454601,
+        "400": 0.00026856513945651384
+      }
+    },
+    "score_label_diagnostics": {
+      "label_variance": 0.1160758555058537,
+      "score_variance": 0.01610196867292537,
+      "covariance": -0.0023560258723658916,
+      "correlation": -0.054496626623689794,
+      "unit_residual_variance": 0.13688987592351085
+    },
+    "coefficient_diagnostics": {
+      "200": {
+        "mean": -0.14542038748637773,
+        "sd": 0.24974023451981978,
+        "quantiles_05_50_95": [
+          -0.515275156354532,
+          -0.16727636407080454,
+          0.30005312113727084
+        ],
+        "fraction_lower_bound": 0.0001,
+        "fraction_upper_bound": 0.0004,
+        "fraction_positive": 0.2491
+      },
+      "400": {
+        "mean": -0.14742720634541273,
+        "sd": 0.2503190023505925,
+        "quantiles_05_50_95": [
+          -0.5152540072591221,
+          -0.17196174198514835,
+          0.3068761242910835
+        ],
+        "fraction_lower_bound": 0.0,
+        "fraction_upper_bound": 0.0007,
+        "fraction_positive": 0.2475
+      }
+    },
+    "paired_mse_comparison": {
+      "200": {
+        "comparison": "pilot_tuned minus pilot_residual",
+        "mse_difference": -4.751671282082792e-05,
+        "mse_difference_mcse": 4.638492658853329e-06
+      },
+      "400": {
+        "comparison": "pilot_tuned minus pilot_residual",
+        "mse_difference": -1.901126001359411e-05,
+        "mse_difference_mcse": 1.6494120238074178e-06
+      }
+    },
+    "pilot_tuning_enumeration": {
+      "pilot_configurations": 16,
+      "main_outcomes_per_pilot": 9,
+      "maximum_mean_error": 1.1102230246251565e-16,
+      "maximum_variance_error": 6.938893903907228e-18,
+      "maximum_variance_estimator_error": 3.469446951953614e-18
+    }
+  },
+  "manuscript_version": "v1.0.0",
+  "finalization": {
+    "date": "2026-10-05",
+    "author_confirmation": "Final scientific, reference, code and result review completed; directly confirmed by author",
+    "version": "v1.0.0",
+    "repository_url": "https://github.com/LeoAndJellyfish/semantic-decision-interfaces",
+    "release_url": "https://github.com/LeoAndJellyfish/semantic-decision-interfaces/releases/tag/v1.0.0",
+    "main_text_math_references_unchanged": true,
+    "code_predictions_results_unchanged": true
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "dataset_url": "https://archive.ics.uci.edu/static/public/228/sms+spam+collection.zip",
+  "model_repo": "cross-encoder/nli-MiniLM2-L6-H768",
+  "revision": "b95119ce93d3e065de6214e38cd4a97b0f2f2c6d",
+  "artifact": "onnx/model_quint8_avx2.onnx",
+  "hypotheses": [
+    "This message is legitimate personal or transactional communication.",
+    "This message is unsolicited promotional or fraudulent spam."
+  ],
+  "hashes": {
+    "sms_spam_collection.zip": "1587ea43e58e82b14ff1f5425c88e17f8496bfcdb67a583dbff9eefaf9963ce3",
+    "config.json": "8b0e41caff7567c0f53e6983f35591c3dec59507c9173ab125c5823394fb57f3",
+    "tokenizer.json": "82139106e603ee4e1d5bc99d056ccbed5a92bc24848b1b5a7137c26e00d0dbf6",
+    "README.md": "1a6e3f880df3584acc1b209c7c667eb22cb7ddd98ab56a5905dda5cfc446ddd1",
+    "onnx/model_quint8_avx2.onnx": "44391a5241a62e0083c1a8899a71e69a092b95aea5ba89e14062925468eceac7"
+  },
+  "rows": 5574,
+  "spam_rows": 747,
+  "duplicate_text_rows": 403,
+  "prediction": {
+    "max_tokens": 512,
+    "batch_records": 24,
+    "truncated_pairs": 0,
+    "max_untruncated_pair_tokens": 271,
+    "runtime_seconds": 351.0107455253601,
+    "provider": "CPUExecutionProvider",
+    "threads": 4,
+    "python": "3.12.14",
+    "versions": {
+      "numpy": "2.5.3",
+      "onnxruntime": "1.30.0",
+      "tokenizers": "0.23.2"
+    },
+    "predictions_sha256": "dd04a2b7f38d0602617798137a5d7d8fd20d8c79954a8e7cab34756aab4e1909"
+  }
+}

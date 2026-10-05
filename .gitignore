@@ -1,0 +1,26 @@
+# Track the versioned manuscript and companion materials only.
+*
+!.gitignore
+!.gitattributes
+!README.md
+!CHECKSUMS.sha256
+!system_one_statistics_survey.tex
+!scripts/
+scripts/*
+!scripts/reproduce_examples.py
+!scripts/sms_design_evaluation.py
+!research/
+research/*
+!research/README.md
+!research/revision_notes.md
+!research/*.csv
+!research/verification.json
+!research/pdf_review.json
+!research/worked_examples.json
+!research/real_data/
+!research/real_data/**
+!output/
+output/*
+!output/pdf/
+output/pdf/*
+!output/pdf/system_one_statistics_survey_english.pdf
