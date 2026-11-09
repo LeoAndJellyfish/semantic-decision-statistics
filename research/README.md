@@ -45,5 +45,5 @@ PDF 默认文本提取中的部分词间连写与提取距离阈值有关。源�
 
 当前采用单文件 `article` 结构和作者—年份引文。正式模板随最终期刊选择调整。如选择 Statistics Surveys，可依据 [IMS 官方作者包](https://www.e-publications.org/ims/support/imsco-instructions.html)及其[模板仓库](https://github.com/vtex-soft/texsupport.ims_cosponsored-ss)完成迁移。
 
-作者已确认完成最终复核。通讯作者邮箱随投稿信息填写。材料与代码归档版本为 [v1.0.0](https://github.com/LeoAndJellyfish/semantic-decision-interfaces/releases/tag/v1.0.0)；[仓库主页](https://github.com/LeoAndJellyfish/semantic-decision-interfaces)提供稿件、代码、固定预测、模拟结果及校验信息。当前稿尚未提交期刊、arXiv 或其他平台。
+作者已确认完成最终复核。通讯作者邮箱随投稿信息填写。稿件、代码、固定预测、模拟结果及校验信息见 [v1.0.0 归档](https://github.com/LeoAndJellyfish/semantic-decision-statistics/tree/v1.0.0)。当前稿尚未提交期刊、arXiv 或其他平台。
 

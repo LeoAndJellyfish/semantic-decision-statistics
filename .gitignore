@@ -24,3 +24,17 @@ output/*
 !output/pdf/
 output/pdf/*
 !output/pdf/system_one_statistics_survey_english.pdf
+
+# New methodological-framework manuscript and its minimal companion study.
+!semantic_decision_statistics.tex
+!scripts/semantic_clustering_study.py
+!research/semantic_clustering/
+!research/semantic_clustering/**
+!output/pdf/semantic_decision_statistics.pdf
+
+# Second edition: frozen real classification case and previous manuscript.
+!scripts/title_case_analysis.py
+!research/title_case/
+!research/title_case/**
+!research/manuscript_versions/
+!research/manuscript_versions/**

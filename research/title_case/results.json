@@ -1,0 +1,532 @@
+{
+  "study_date": "2026-10-06",
+  "python": "3.12.14",
+  "numpy": "2.3.5",
+  "source_commit": "1b0ce28d265454680b5b383bbb7ff0929dca688b",
+  "models": {
+    "nb": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            444,
+            124
+          ],
+          [
+            129,
+            303
+          ]
+        ],
+        "accuracy": 0.747,
+        "macro_f1": 0.7418680792842502,
+        "invalid_precision": 0.7096018735362998,
+        "invalid_recall": 0.7013888888888888
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            444,
+            124
+          ],
+          [
+            129,
+            279
+          ]
+        ],
+        "accuracy": 0.7407786885245902,
+        "macro_f1": 0.7331520687825485,
+        "invalid_precision": 0.6923076923076923,
+        "invalid_recall": 0.6838235294117647
+      }
+    },
+    "word2vec": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            390,
+            178
+          ],
+          [
+            111,
+            321
+          ]
+        ],
+        "accuracy": 0.711,
+        "macro_f1": 0.7096174888644838,
+        "invalid_precision": 0.6432865731462926,
+        "invalid_recall": 0.7430555555555556
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            390,
+            178
+          ],
+          [
+            111,
+            297
+          ]
+        ],
+        "accuracy": 0.7038934426229508,
+        "macro_f1": 0.7011802819497694,
+        "invalid_precision": 0.6252631578947369,
+        "invalid_recall": 0.7279411764705882
+      }
+    },
+    "bert": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            433,
+            135
+          ],
+          [
+            51,
+            381
+          ]
+        ],
+        "accuracy": 0.814,
+        "macro_f1": 0.8134956923521202,
+        "invalid_precision": 0.7383720930232558,
+        "invalid_recall": 0.8819444444444444
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            433,
+            135
+          ],
+          [
+            51,
+            357
+          ]
+        ],
+        "accuracy": 0.8094262295081968,
+        "macro_f1": 0.8082636248415715,
+        "invalid_precision": 0.725609756097561,
+        "invalid_recall": 0.875
+      }
+    },
+    "systemone": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            567,
+            1
+          ],
+          [
+            324,
+            108
+          ]
+        ],
+        "accuracy": 0.675,
+        "macro_f1": 0.5882526583041837,
+        "invalid_precision": 0.9908256880733946,
+        "invalid_recall": 0.25
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            567,
+            1
+          ],
+          [
+            324,
+            84
+          ]
+        ],
+        "accuracy": 0.6670081967213115,
+        "macro_f1": 0.5590077396088071,
+        "invalid_precision": 0.9882352941176471,
+        "invalid_recall": 0.20588235294117646
+      }
+    },
+    "tev1-nf4-zero-shot": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            561,
+            7
+          ],
+          [
+            242,
+            190
+          ]
+        ],
+        "accuracy": 0.751,
+        "macro_f1": 0.7112571446462552,
+        "invalid_precision": 0.9644670050761421,
+        "invalid_recall": 0.4398148148148148
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            561,
+            7
+          ],
+          [
+            242,
+            166
+          ]
+        ],
+        "accuracy": 0.7448770491803278,
+        "macro_f1": 0.6949046577055329,
+        "invalid_precision": 0.9595375722543352,
+        "invalid_recall": 0.4068627450980392
+      }
+    },
+    "tev1_finetuned": {
+      "all": {
+        "n": 1000,
+        "confusion_matrix": [
+          [
+            500,
+            68
+          ],
+          [
+            34,
+            398
+          ]
+        ],
+        "accuracy": 0.898,
+        "macro_f1": 0.8969276351157442,
+        "invalid_precision": 0.8540772532188842,
+        "invalid_recall": 0.9212962962962963
+      },
+      "nonempty": {
+        "n": 976,
+        "confusion_matrix": [
+          [
+            500,
+            68
+          ],
+          [
+            34,
+            374
+          ]
+        ],
+        "accuracy": 0.8954918032786885,
+        "macro_f1": 0.8937205081669691,
+        "invalid_precision": 0.8461538461538461,
+        "invalid_recall": 0.9166666666666666
+      }
+    }
+  },
+  "probability": {
+    "systemone": {
+      "n": 976,
+      "brier_score": 0.21812774340813773,
+      "log_loss": 0.6307386187147942,
+      "ece": 0.23486590864332355,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 479,
+          "mean_probability": 0.06431783426037471,
+          "observed_frequency": 0.1127348643006263
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 200,
+          "mean_probability": 0.13716787292583335,
+          "observed_frequency": 0.415
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 99,
+          "mean_probability": 0.2442865046175678,
+          "observed_frequency": 0.8282828282828283
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 64,
+          "mean_probability": 0.34764198105897404,
+          "observed_frequency": 0.90625
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 49,
+          "mean_probability": 0.44709805542465597,
+          "observed_frequency": 0.9591836734693877
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 43,
+          "mean_probability": 0.5414603817165947,
+          "observed_frequency": 1.0
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 29,
+          "mean_probability": 0.6553055634591313,
+          "observed_frequency": 0.9655172413793104
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 10,
+          "mean_probability": 0.7334080890677606,
+          "observed_frequency": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 3,
+          "mean_probability": 0.8556872875674527,
+          "observed_frequency": 1.0
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 0,
+          "mean_probability": null,
+          "observed_frequency": null
+        }
+      ]
+    },
+    "tev1-nf4-zero-shot": {
+      "n": 976,
+      "brier_score": 0.1684817719219082,
+      "log_loss": 0.5110640781673005,
+      "ece": 0.17036216431984405,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 431,
+          "mean_probability": 0.054848781335243214,
+          "observed_frequency": 0.10208816705336426
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 145,
+          "mean_probability": 0.13834632707053218,
+          "observed_frequency": 0.32413793103448274
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 105,
+          "mean_probability": 0.2445086970215752,
+          "observed_frequency": 0.4666666666666667
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 48,
+          "mean_probability": 0.3506967170784871,
+          "observed_frequency": 0.7291666666666666
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 61,
+          "mean_probability": 0.43243478751573405,
+          "observed_frequency": 0.8852459016393442
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 66,
+          "mean_probability": 0.5484136252692251,
+          "observed_frequency": 0.9545454545454546
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 30,
+          "mean_probability": 0.6435422519842784,
+          "observed_frequency": 0.9
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 44,
+          "mean_probability": 0.7510828538374468,
+          "observed_frequency": 1.0
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 33,
+          "mean_probability": 0.8580484281886708,
+          "observed_frequency": 0.9696969696969697
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 13,
+          "mean_probability": 0.9443305593270522,
+          "observed_frequency": 1.0
+        }
+      ]
+    },
+    "tev1_finetuned": {
+      "n": 976,
+      "brier_score": 0.09925263868821312,
+      "log_loss": 0.3988433257196003,
+      "ece": 0.13012991824996523,
+      "bins": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 53,
+          "mean_probability": 0.08509111573111336,
+          "observed_frequency": 0.03773584905660377
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 211,
+          "mean_probability": 0.14714296059727103,
+          "observed_frequency": 0.05687203791469194
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 171,
+          "mean_probability": 0.23971849052529587,
+          "observed_frequency": 0.05847953216374269
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 60,
+          "mean_probability": 0.344703775147597,
+          "observed_frequency": 0.11666666666666667
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 33,
+          "mean_probability": 0.43425784959937586,
+          "observed_frequency": 0.09090909090909091
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 25,
+          "mean_probability": 0.5446432256698608,
+          "observed_frequency": 0.28
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 13,
+          "mean_probability": 0.6465796690720779,
+          "observed_frequency": 0.3076923076923077
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 11,
+          "mean_probability": 0.747487106106498,
+          "observed_frequency": 0.36363636363636365
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 22,
+          "mean_probability": 0.8496463027867404,
+          "observed_frequency": 0.5454545454545454
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 377,
+          "mean_probability": 0.9933926148503149,
+          "observed_frequency": 0.9204244031830239
+        }
+      ]
+    }
+  },
+  "bootstrap": {
+    "repetitions": 10000,
+    "seed": 20261006,
+    "unit": "normalized nonempty title group",
+    "stratification": "reference class",
+    "groups_by_class": {
+      "0": 568,
+      "1": 395
+    },
+    "fixed_empty_rule_rows": 24,
+    "interval": "paired percentile 95%",
+    "scope": "fixed trained models and archived test-source composition; training variability excluded"
+  },
+  "comparisons": {
+    "tev1-nf4-zero-shot": {
+      "new_model": "tev1_finetuned",
+      "differences": {
+        "accuracy": {
+          "difference": 0.14700000000000002,
+          "percentile_95_interval": [
+            0.1221669251202176,
+            0.1721730038195295
+          ]
+        },
+        "macro_f1": {
+          "difference": 0.18567049046948902,
+          "percentile_95_interval": [
+            0.15459763814288793,
+            0.21776242500265564
+          ]
+        }
+      },
+      "corrected": 210,
+      "introduced_errors": 63,
+      "both_correct": 688,
+      "both_wrong": 39
+    },
+    "bert": {
+      "new_model": "tev1_finetuned",
+      "differences": {
+        "accuracy": {
+          "difference": 0.08400000000000007,
+          "percentile_95_interval": [
+            0.06136666734072769,
+            0.10653266331658284
+          ]
+        },
+        "macro_f1": {
+          "difference": 0.08343194276362409,
+          "percentile_95_interval": [
+            0.06078157522319602,
+            0.10605219696184442
+          ]
+        }
+      },
+      "corrected": 112,
+      "introduced_errors": 28,
+      "both_correct": 786,
+      "both_wrong": 74
+    }
+  },
+  "error_cost": {
+    "nf4_to_finetuned_fn_change": -208,
+    "nf4_to_finetuned_fp_change": 61,
+    "fn_to_fp_cost_ratio_boundary": 0.2932692307692308
+  },
+  "checks": {
+    "six_prediction_files_aligned": true,
+    "archived_metrics_recomputed": true,
+    "probability_metrics_recomputed": true,
+    "decision_threshold_checked": true
+  }
+}

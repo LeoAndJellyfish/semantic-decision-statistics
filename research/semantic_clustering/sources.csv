@@ -1,0 +1,29 @@
+citekey,source_type,version,url,checked_date,supported_claim
+sms-data,data,2011,https://doi.org/10.24432/C5CC84,2026-10-05,SMS语料的来源与引用；原始档案行数另由本地数据确定
+ppi2023,method,Science 382(6671),https://doi.org/10.1126/science.adi6000,2026-10-05,预测辅助推断与残差校正的统计用途
+bansal2004,method,Machine Learning 56,https://doi.org/10.1023/B:MACH.0000033116.57574.95,2026-10-05,相关聚类与成对不一致目标
+fellegi1969,method,JASA 64(328),https://doi.org/10.1080/01621459.1969.10501049,2026-10-05,概率记录链接的字段比较基础
+gao2026,empirical,arXiv v1,https://arxiv.org/abs/2609.38827v1,2026-10-05,特定模型与任务下的序数尺度利用压缩
+grimmer2013,method,Political Analysis 21(3),https://doi.org/10.1093/pan/mps028,2026-10-05,文本分析的实质性解释及应用验证
+guo2017,method,PMLR 70,https://proceedings.mlr.press/v70/guo17a.html,2026-10-05,分类概率校准评价
+hubert1985,method,Journal of Classification 2,https://doi.org/10.1007/BF01908075,2026-10-05,划分比较与调整兰德指数
+ibrahim2026,empirical,arXiv v2,https://arxiv.org/abs/2609.24574v2,2026-10-05,计算社会科学标注中的任务差异、费用及置信路由
+jia2026,method-empirical,arXiv v1; AAAI-26,https://arxiv.org/abs/2601.11118v1,2026-10-05,约束集合生成、置信阈值与误差惩罚
+joy2026,empirical,arXiv v1,https://arxiv.org/abs/2609.33971v1,2026-10-05,直接与分解分类判断的概率协调性
+mccullagh1980,method,JRSS B 42(2),https://doi.org/10.1111/j.2517-6161.1980.tb01109.x,2026-10-05,利用等级次序的序数回归
+ratner2017,method,PVLDB 11(3),https://doi.org/10.14778/3157794.3157797,2026-10-05,多种带噪弱标签来源及相关性处理
+sarndal1992,method,1992 book,https://link.springer.com/book/9780387406206,2026-10-05,固定总体模型辅助估计的残差方差
+sms-model,model-card,b95119ce93d3e065de6214e38cd4a97b0f2f2c6d,https://huggingface.co/cross-encoder/nli-MiniLM2-L6-H768,2026-10-05,固定NLI模型；读取方式见既有实验
+tan2024,survey,EMNLP 2024,https://doi.org/10.18653/v1/2024.emnlp-main.54,2026-10-05,标注生成、评估和使用三类文献组织
+typesafe-choice,documentation,accessed 2026-10-05,https://docs.typesafe.ai/primitives/choice,2026-10-05,类别、概率分布与分布集中程度定义的置信度
+typesafe-intro,documentation,accessed 2026-10-05,https://docs.typesafe.ai/introduction,2026-10-05,输入状态、类型问题与多个问题操作
+typesafe-noul,documentation,accessed 2026-10-05,https://docs.typesafe.ai/primitives/noul,2026-10-05,回答是的赋值概率；无单独置信字段
+typesafe-score,documentation,accessed 2026-10-05,https://docs.typesafe.ai/primitives/score,2026-10-05,有序等级、等级概率及索引加权得分
+viswanathan2024,method-empirical,TACL 12,https://doi.org/10.1162/tacl_a_00648,2026-10-05,特征改进、约束及结果修正三阶段
+wagstaff2001,method,ICML 2001,https://www.cs.cmu.edu/~dgovinda/pdf/icml-2001.pdf,2026-10-05,同组和异组背景约束进入K-means
+cequel2025,method-empirical,arXiv v2,https://arxiv.org/abs/2504.15640v2,2026-10-05,预算内查询对或三元组并进行加权约束聚类
+yin2019,method,EMNLP-IJCNLP 2019,https://doi.org/10.18653/v1/D19-1404,2026-10-05,零样本分类的标签说明与蕴含方法
+clusterllm2023,method-empirical,EMNLP 2023,https://doi.org/10.18653/v1/2023.emnlp-main.858,2026-10-05,三元组指导表示、成对判断选择粒度
+qlora2023,method,NeurIPS 2023; volume 36,https://proceedings.neurips.cc/paper_files/paper/2023/hash/1feb87871436031bdc0f2beaa62a049b-Abstract-Conference.html,2026-10-06,量化冻结主干上的低秩任务适配；本案例训练方式的既有基础
+tev1-card,model,0b7becf017daa0e5eb222f8ce7483c8c8259c52f,https://huggingface.co/togethercomputer/Tev1-4B-experimental/tree/0b7becf017daa0e5eb222f8ce7483c8c8259c52f,2026-10-06,Tev1由Qwen3.5-4B监督微调；状态、问题与字母选项接口；固定README校验值与原实验一致
+title-case,empirical_case,1b0ce28d265454680b5b383bbb7ff0929dca688b,https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b,2026-10-06,课程数据来源与标签口径、划分、六项预测、模型配置与微调配对对照；新增重分析由本稿保存结果支持
