@@ -26,3 +26,7 @@ python scripts/sms_design_evaluation.py evaluate
 标题与 SMS 案例使用随附的固定预测，聚类实验由脚本生成模拟判断。结果写入各自的案例目录。聚类和 SMS 脚本也会生成逐次模拟记录。下载文件可用 [SHA-256 清单](CHECKSUMS.sha256)核对。
 
 如需重新生成论文，使用 `xelatex -interaction=nonstopmode -halt-on-error semantic_decision_statistics.tex` 编译至交叉引用稳定。早期稿件、完整逐次模拟记录和审校材料可从 [v2.0.0 归档](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.0.0)获取。
+
+## 协作工具
+
+在项目中，我使用了 `collaborative-research` 梳理研究路线和核查证据，并使用 `academic-less-ai-tone` 审校中文稿件。 [研究协作技能](https://github.com/LeoAndJellyfish/collaborative-dev-research-skills) · [中文学术写作技能](https://github.com/LeoAndJellyfish/academic-less-ai-tone)
