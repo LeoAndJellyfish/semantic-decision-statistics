@@ -1,8 +1,8 @@
 # 语义决策模型在统计分析中的应用
 
-游尹哲郡 · 中央财经大学 · 2026 年 11 月 10 日修订稿（16 页）
+游尹哲郡 · 中央财经大学 · 2026 年 11 月 10 日修订稿（16 页） · [v2.1.0](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.0)
 
-[阅读论文 PDF](output/pdf/semantic_decision_statistics.pdf) · [下载 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/raw/refs/heads/main/output/pdf/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [下载全部复现材料（ZIP）](https://github.com/LeoAndJellyfish/semantic-decision-statistics/archive/refs/heads/main.zip)
+[阅读论文 PDF](output/pdf/semantic_decision_statistics.pdf) · [下载 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [下载全部复现材料（ZIP）](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)
 
 ## 数据与结果
 
