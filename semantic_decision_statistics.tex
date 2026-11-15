@@ -1,5 +1,5 @@
 % !TeX program = xelatex
-% 教师意见修订稿，2026-11-10。单文件，参考文献及结果内嵌。
+% 文字修订稿，2026-11-15。单文件，参考文献及结果内嵌。
 % 构造聚类研究：scripts/semantic_clustering_study.py。
 % 真实分类案例重分析：scripts/title_case_analysis.py。
 \documentclass[UTF8,a4paper,zihao=-4,fontset=fandol]{ctexart}
@@ -43,7 +43,7 @@
 \author{游尹哲郡（Youyin Zhejun）\\[0.3em]
 \small 中央财经大学\\
 \small ORCID：\href{https://orcid.org/0009-0009-5316-8193}{0009-0009-5316-8193}}
-\date{2026年11月10日}
+\date{2026年11月15日}
 
 \begin{document}
 \maketitle
@@ -73,7 +73,7 @@
 
 \citet{tan2024}围绕生成、评估与使用综述语言模型标注，ClusterLLM 等研究则利用语言模型判断指导文本聚类\citep{clusterllm2023,viswanathan2024,cequel2025}。本文以分类、聚类、序数测量和记录链接为例，说明同类判断如何服务于不同统计目标，并区分信息获取与后续使用各自的作用。分类案例使用 Tev1，分析任务监督、部署与错误代价。构造聚类实验固定关系判断来源，比较二元与概率读取，并考察并列解选择规则。
 
-本文开展定向文献研究。接口操作和字段以官方文档及固定版本模型卡为据，任务表现以会议论文、期刊和预印本中的实证结果为据。既有方法和 Jev 材料核查截至2026年10月5日，Tev1 与分类案例补充核查至10月6日。标题案例复用10月3日至6日的课程实验，新增指标复算、配对重抽样与错误代价分析。既有 SMS 抽样结果见附录\ref{sec:sms}。
+本文开展定向文献研究。接口操作和字段以官方文档及固定版本模型卡为据，任务表现以会议论文、期刊和预印本中的实证结果为据。既有方法和 Jev 材料核查截至2026年10月5日，Tev1 与分类案例补充核查至10月6日。分类案例沿用10月3日至6日的题名提取实验数据，并补充指标复算、配对重抽样与错误代价分析。既有 SMS 抽样结果见附录\ref{sec:sms}。
 
 \section{模型形态、接口属性与方法前史}\label{sec:history}
 
@@ -180,7 +180,7 @@ Tev1 基于 Qwen3.5-4B 监督微调，输入包括状态、问题和带字母的
 
 \subsubsection{数据、语义标准与比较设计}
 
-本案例复用信息检索课程项目的归档数据和预测\citep{title-case}。参考标签记录实际提取是否正确。训练集和验证集分别含169,908条和42,477条记录，测试集含568条正确提取和432条错误提取。按归一化标题核查，三个分区互无重叠。处理规则和模型配置见附录\ref{app:materials}。
+本案例采用论文题名提取实验的归档数据和预测\citep{title-case}。参考标签记录实际提取是否正确。训练集和验证集分别含169,908条和42,477条记录，测试集含568条正确提取和432条错误提取。按归一化标题核查，三个分区互无重叠。处理规则和模型配置见附录\ref{app:materials}。
 
 模型仅接收提取文本。规程将完整、连贯的学术标题归为 valid（A），将残缺片段、作者或机构名单、出版元数据、页眉、乱码及混入正文的文本归为 invalid（B）。人工原题名、文献 ID 和参考标签供核对。测试集的24条空标题均为错误提取，各方法统一按规则判为 invalid，其余976条由模型判断。
 
@@ -245,7 +245,7 @@ Transformers/NF4＋QLoRA & 0.0993 & 0.3988 & 0.1301 \\
 \Needspace{8\baselineskip}
 \subsubsection{判断标准与参考标签}
 
-课程标签评价实际提取结果，模型依据输入文本判断其是否像一个完整标题。例如，“\mbox{Notation as a Tool of}”是残缺片段，NF4 零样本判为 valid，微调判为 invalid。“\mbox{Editorial Statement}”在形式上完整，原题名为“Special Issue: The Future of Biofeedback Instrumentation”，参考标签与微调判断均为 invalid。前一例可凭标题文本识别，后一例需要参照原文才能核实提取是否正确。后续可在同一规程下比较仅提供标题与补充原文信息时的判断，并记录参考编码的分歧与裁决。
+参考标签记录题名提取是否正确，模型依据输入文本判断其是否像一个完整标题。例如，“\mbox{Notation as a Tool of}”是残缺片段，NF4 零样本判为 valid，微调判为 invalid。“\mbox{Editorial Statement}”在形式上完整，原题名为“Special Issue: The Future of Biofeedback Instrumentation”，参考标签与微调判断均为 invalid。前一例可凭标题文本识别，后一例需要参照原文才能核实提取是否正确。后续可在同一规程下比较仅提供标题与补充原文信息时的判断，并记录参考编码的分歧与裁决。
 
 \section{语义标准指导的聚类}\label{sec:clustering}
 
@@ -524,7 +524,7 @@ SRS 差值估计，$\lambda=1$ & 6.604 & 3.113 \\
 
 分析脚本、逐条预测、来源校验值与未舍入结果见\href{https://github.com/LeoAndJellyfish/semantic-decision-statistics}{GitHub 公开复现材料}。
 
-分类材料取自课程项目\citep{title-case}。固定提交号为 \nolinkurl{1b0ce28d265454680b5b383bbb7ff0929dca688b}。原训练文本236,158行，依次清理空行、类内重复、测试标题重叠及训练标签冲突后，训练池有212,385条记录。标题身份由 Unicode NFKC、大小写折叠、空白合并及首尾清理定义，训练与验证按类别分层，种子为42。运行 \nolinkurl{scripts/title_case_analysis.py} 可用 \nolinkurl{research/title_case/} 中的六项对齐预测复算指标。配对自助重抽样以568个正确和395个错误的非空标题组为单位，保持组内记录权重，固定加入24条空标题。重复次数10,000，种子为20261006，结果以一次训练得到的预测为条件。
+分类材料来自论文题名提取实验\citep{title-case}。固定提交号为 \nolinkurl{1b0ce28d265454680b5b383bbb7ff0929dca688b}。原训练文本236,158行，依次清理空行、类内重复、测试标题重叠及训练标签冲突后，训练池有212,385条记录。标题身份由 Unicode NFKC、大小写折叠、空白合并及首尾清理定义，训练与验证按类别分层，种子为42。运行 \nolinkurl{scripts/title_case_analysis.py} 可用 \nolinkurl{research/title_case/} 中的六项对齐预测复算指标。配对自助重抽样以568个正确和395个错误的非空标题组为单位，保持组内记录权重，固定加入24条空标题。重复次数10,000，种子为20261006，结果以一次训练得到的预测为条件。
 
 Tev1 基础权重版本为 \nolinkurl{0b7becf017daa0e5eb222f8ce7483c8c8259c52f}。微调固定 NF4 四位主干、双重量化和 BF16 计算，LoRA 秩8、缩放系数16、dropout 0，学习率$5\times10^{-5}$，有效批量16，训练一轮，最长512词元。训练损失覆盖答案字母及结束标记，训练和验证提示均无截断。第5,310及10,620步的验证宏平均 F1 分别为85.45\%和85.91\%，后者在测试前入选。未微调对照在同一模型实例中关闭适配器，两者均逐条推理。Ollama 0.35.0 使用 Q4\_K\_M GGUF，权重摘要随材料保存，上游 HF 版本未标明。原实验使用 Python 3.12.11，NF4 依赖 PyTorch 2.11.0、Transformers 5.14.1、PEFT 0.21.2 和 bitsandbytes 0.50.2。重分析以 Python 和 NumPy 读取保存的预测。
 
@@ -598,7 +598,7 @@ arXiv:2609.33971v1. Preprint.
 
 \bibitem[LeoAndJellyfish(2026)]{title-case}
 LeoAndJellyfish (2026).
-\href{https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b}{论文标题提取错误识别：课程实验与复现材料}.
+\href{https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b}{论文标题提取错误识别（实验数据与复现材料）}.
 GitHub repository, fixed commit specified in Appendix~\ref{app:materials}, accessed 6 October 2026.
 
 \bibitem[McCullagh(1980)]{mccullagh1980}

@@ -1,6 +1,6 @@
 # 数据说明与复现
 
-[下载论文 v2.1.0 对应的复现材料](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)，解压后打开含有 `scripts` 和 `research` 的目录。以下命令均从该目录运行，每个案例可独立复算。使用 Python 3.12 和 NumPy 2.3.5，安装依赖后可离线运行。
+[下载论文 v2.1.1 对应的复现材料](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.1/semantic_decision_statistics_materials_v2.1.1.zip)，解压后打开含有 `scripts` 和 `research` 的目录。以下命令均从该目录运行，每个案例可独立复算。使用 Python 3.12 和 NumPy 2.3.5，安装依赖后可离线运行。
 
 ```sh
 python -m pip install numpy==2.3.5
@@ -38,4 +38,4 @@ python scripts/sms_design_evaluation.py evaluate
 
 ## 论文与版本
 
-三个脚本均在对应案例目录内生成 `summary.csv` 和 `results.json`。校验下载文件时，使用所在版本根目录的 `CHECKSUMS.sha256`。如需编译[论文源文件](../semantic_decision_statistics.tex)，在根目录运行 `xelatex -interaction=nonstopmode -halt-on-error semantic_decision_statistics.tex` 至交叉引用稳定。[论文与复现包 v2.1.0](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.0) · [早期稿件与逐次模拟记录 v2.0.0](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.0.0)
+三个脚本均在对应案例目录内生成 `summary.csv` 和 `results.json`。校验下载文件时，使用所在版本根目录的 `CHECKSUMS.sha256`。如需编译[论文源文件](../semantic_decision_statistics.tex)，在根目录运行 `xelatex -interaction=nonstopmode -halt-on-error semantic_decision_statistics.tex` 至交叉引用稳定。[论文与复现包 v2.1.1](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.1) · [早期稿件与逐次模拟记录 v2.0.0](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.0.0)

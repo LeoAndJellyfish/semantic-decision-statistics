@@ -2,7 +2,7 @@
 
 游尹哲郡 · 中央财经大学 · 2026 年 11 月修订稿 · 16 页
 
-**[下载论文 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics.pdf)　·　[下载复现材料 ZIP](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)**
+**[下载论文 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.1/semantic_decision_statistics.pdf)　·　[下载复现材料 ZIP](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.1/semantic_decision_statistics_materials_v2.1.1.zip)**
 
 一条题名对应一个分类标签，两条投诉之间则可以记录一条同组关系。论文讨论按自然语言标准取得的标签、关系和等级怎样进入分类、聚类和测量。标题识别使用 1,000 条归档测试记录，投诉聚类使用九条构造记录和模拟判断。
 
@@ -18,6 +18,6 @@
 
 解压复现材料，在含有 `scripts` 和 `research` 的目录中运行相应案例。三个案例均可在 CPU 上复算。[数据说明与运行命令](research/README.md)
 
-[在线阅读论文](output/pdf/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [v2.1.0 发布记录](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.0)
+[在线阅读论文](output/pdf/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [v2.1.1 发布记录](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.1)
 
 在项目中，我使用了 [collaborative-research](https://github.com/LeoAndJellyfish/collaborative-dev-research-skills) 梳理研究路线和核查证据，并使用 [academic-less-ai-tone](https://github.com/LeoAndJellyfish/academic-less-ai-tone) 审校中文稿件。
