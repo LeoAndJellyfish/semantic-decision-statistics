@@ -17,7 +17,6 @@
 !research/title_case/
 !research/semantic_clustering/
 !research/real_data/
-!research/*/README.md
 !research/*/predictions.csv
 !research/*/records.csv
 !research/*/provenance.json

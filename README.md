@@ -1,32 +1,23 @@
 # 语义决策模型在统计分析中的应用
 
-游尹哲郡 · 中央财经大学 · 2026 年 11 月 10 日修订稿（16 页） · [v2.1.0](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.0)
+游尹哲郡 · 中央财经大学 · 2026 年 11 月修订稿 · 16 页
 
-[阅读论文 PDF](output/pdf/semantic_decision_statistics.pdf) · [下载 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [下载全部复现材料（ZIP）](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)
+**[下载论文 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics.pdf)　·　[下载复现材料 ZIP](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)**
+
+模型能识别提取到一半的论文标题吗？两条投诉涉及不同产品，是否可能源于同一种故障？论文从标题分类和投诉聚类出发，讨论自然语言判断怎样进入统计分析。标题案例使用真实测试记录，投诉案例使用九条构造记录和模拟判断。
 
 ## 数据与结果
 
-| 案例 | 数据 | 归档结果 |
+| 案例 | 数据 | 结果 |
 | --- | --- | --- |
-| [论文标题提取错误识别](research/title_case/) | [测试集逐条预测 CSV](research/title_case/predictions.csv) · [上游数据与训练配置](https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b) | [指标 CSV](research/title_case/summary.csv) · [完整结果 JSON](research/title_case/results.json) |
-| [构造聚类实验](research/semantic_clustering/) | [九条构造记录 CSV](research/semantic_clustering/records.csv) | [汇总 CSV](research/semantic_clustering/summary.csv) · [完整结果 JSON](research/semantic_clustering/results.json) |
-| [SMS 总体比例估计](research/real_data/) | [归档标签与模型分数 CSV](research/real_data/predictions.csv) · [原始语料 ZIP](research/real_data/sms_spam_collection.zip) | [汇总 CSV](research/real_data/summary.csv) · [完整结果 JSON](research/real_data/results.json) |
+| 论文标题提取错误识别 | [1,000 条测试记录的标签与预测](research/title_case/predictions.csv) | [六种方法的分类指标](research/title_case/summary.csv) |
+| 按故障机制聚类 | [九条构造投诉](research/semantic_clustering/records.csv) | [不同查询次数下的聚类结果](research/semantic_clustering/summary.csv) |
+| 垃圾短信比例估计（附录） | [5,574 条短信的标签与分数](research/real_data/predictions.csv) | [抽样估计结果](research/real_data/summary.csv) |
 
 ## 复算
 
-解压复现材料，在根目录使用 Python 3.12 运行以下命令。
+解压复现材料，在含有 `scripts` 和 `research` 的目录中运行相应案例。三个案例均可在 CPU 上复算。[数据说明与运行命令](research/README.md)
 
-```sh
-python -m pip install numpy==2.3.5
-python scripts/title_case_analysis.py
-python scripts/semantic_clustering_study.py
-python scripts/sms_design_evaluation.py evaluate
-```
+[在线阅读论文](output/pdf/semantic_decision_statistics.pdf) · [LaTeX 源文件](semantic_decision_statistics.tex) · [v2.1.0 发布记录](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.1.0)
 
-标题与 SMS 案例使用随附的固定预测，聚类实验由脚本生成模拟判断。结果写入各自的案例目录。聚类和 SMS 脚本也会生成逐次模拟记录。下载文件可用 [SHA-256 清单](CHECKSUMS.sha256)核对。
-
-如需重新生成论文，使用 `xelatex -interaction=nonstopmode -halt-on-error semantic_decision_statistics.tex` 编译至交叉引用稳定。早期稿件、完整逐次模拟记录和审校材料可从 [v2.0.0 归档](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/tag/v2.0.0)获取。
-
-## 协作工具
-
-在项目中，我使用了 `collaborative-research` 梳理研究路线和核查证据，并使用 `academic-less-ai-tone` 审校中文稿件。 [研究协作技能](https://github.com/LeoAndJellyfish/collaborative-dev-research-skills) · [中文学术写作技能](https://github.com/LeoAndJellyfish/academic-less-ai-tone)
+在项目中，我使用了 [collaborative-research](https://github.com/LeoAndJellyfish/collaborative-dev-research-skills) 梳理研究路线和核查证据，并使用 [academic-less-ai-tone](https://github.com/LeoAndJellyfish/academic-less-ai-tone) 审校中文稿件。
