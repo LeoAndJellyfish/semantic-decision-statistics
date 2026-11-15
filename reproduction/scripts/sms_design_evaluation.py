@@ -17,8 +17,9 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / 'research' / 'real_data'
-MODEL = ROOT / 'tmp' / 'models' / 'sms-nli'
+DATA = ROOT / 'data' / 'sms'
+OUT = ROOT / 'outputs' / 'sms'
+MODEL = ROOT / 'cache' / 'models' / 'sms-nli'
 REPO = 'cross-encoder/nli-MiniLM2-L6-H768'
 REV = 'b95119ce93d3e065de6214e38cd4a97b0f2f2c6d'
 ARTIFACT = 'onnx/model_quint8_avx2.onnx'
@@ -36,8 +37,9 @@ def digest(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
-def save_json(name, value):
-    (OUT / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
+def save_json(name, value, directory=None):
+    target = OUT if directory is None else directory
+    (target / name).write_text(json.dumps(value, indent=2, ensure_ascii=False) + '\n', encoding='utf-8')
 
 
 def download(url, path):
@@ -50,7 +52,7 @@ def download(url, path):
 
 
 def records():
-    with zipfile.ZipFile(OUT / 'sms_spam_collection.zip') as z:
+    with zipfile.ZipFile(DATA / 'sms_spam_collection.zip') as z:
         raw = z.read('SMSSpamCollection').decode('utf-8')
     # Split on newline, preserving any other characters inside a message.
     rows = [line.rstrip('\r').split('\t', 1) for line in raw.split('\n') if line.rstrip('\r')]
@@ -59,29 +61,29 @@ def records():
 
 
 def prepare():
-    OUT.mkdir(parents=True, exist_ok=True)
+    DATA.mkdir(parents=True, exist_ok=True)
     MODEL.mkdir(parents=True, exist_ok=True)
     meta = {'dataset_url': DATA_URL, 'model_repo': REPO, 'revision': REV,
             'artifact': ARTIFACT, 'hypotheses': HYPOTHESES, 'hashes': {}}
-    meta['hashes']['sms_spam_collection.zip'] = download(DATA_URL, OUT / 'sms_spam_collection.zip')
-    with zipfile.ZipFile(OUT / 'sms_spam_collection.zip') as z:
-        (OUT / 'original_readme.txt').write_bytes(z.read('readme'))
+    meta['hashes']['sms_spam_collection.zip'] = download(DATA_URL, DATA / 'sms_spam_collection.zip')
+    with zipfile.ZipFile(DATA / 'sms_spam_collection.zip') as z:
+        (DATA / 'original_readme.txt').write_bytes(z.read('readme'))
     for name in ('config.json', 'tokenizer.json', 'README.md', ARTIFACT):
         url = f'https://huggingface.co/{REPO}/resolve/{REV}/{name}'
         meta['hashes'][name] = download(url, MODEL / Path(name).name)
     rows = records()
     meta.update(rows=len(rows), spam_rows=sum(r[0] == 'spam' for r in rows),
                 duplicate_text_rows=len(rows) - len({r[1] for r in rows}))
-    save_json('provenance.json', meta)
+    save_json('provenance.json', meta, directory=DATA)
     print(json.dumps({k: v for k, v in meta.items() if k != 'hashes'}), flush=True)
 
 
 def predict():
     import onnxruntime as ort
     from tokenizers import Tokenizer
-    meta = json.loads((OUT / 'provenance.json').read_text(encoding='utf-8'))
+    meta = json.loads((DATA / 'provenance.json').read_text(encoding='utf-8'))
     for name, expected in meta['hashes'].items():
-        path = OUT / name if name.endswith('.zip') else MODEL / Path(name).name
+        path = DATA / name if name.endswith('.zip') else MODEL / Path(name).name
         assert digest(path) == expected, (name, 'artifact hash changed')
     rows = records()
     tok = Tokenizer.from_file(str(MODEL / 'tokenizer.json'))
@@ -116,7 +118,7 @@ def predict():
     strata = np.empty(len(f), dtype=int)
     for h, ids in enumerate(np.array_split(order, 4)):
         strata[ids] = h
-    with (OUT / 'predictions.csv').open('w', encoding='utf-8', newline='') as out:
+    with (DATA / 'predictions.csv').open('w', encoding='utf-8', newline='') as out:
         w = csv.writer(out)
         w.writerow(['row_id', 'text_sha256', 'y_spam', 'score', 'stratum'])
         for i, ((label, text), score, h) in enumerate(zip(rows, f, strata)):
@@ -126,8 +128,8 @@ def predict():
                           'provider': 'CPUExecutionProvider', 'threads': 4,
                           'python': platform.python_version(),
                           'versions': {p: importlib.metadata.version(p) for p in ['numpy', 'onnxruntime', 'tokenizers']},
-                          'predictions_sha256': digest(OUT / 'predictions.csv')}
-    save_json('provenance.json', meta)
+                          'predictions_sha256': digest(DATA / 'predictions.csv')}
+    save_json('provenance.json', meta, directory=DATA)
     print(meta['prediction'], flush=True)
 
 
@@ -154,13 +156,14 @@ def pilot_coefficient(y, f, pilots, groups, fmean, score_variance):
 
 
 def evaluate():
-    rows = list(csv.DictReader((OUT / 'predictions.csv').open(encoding='utf-8')))
+    OUT.mkdir(parents=True, exist_ok=True)
+    rows = list(csv.DictReader((DATA / 'predictions.csv').open(encoding='utf-8')))
     y = np.array([int(r['y_spam']) for r in rows], dtype=float)
     f = np.array([float(r['score']) for r in rows])
     h = np.array([int(r['stratum']) for r in rows])
     assert len(y) == len(records())
-    meta = json.loads((OUT / 'provenance.json').read_text())
-    assert digest(OUT / 'predictions.csv') == meta['prediction']['predictions_sha256']
+    meta = json.loads((DATA / 'provenance.json').read_text(encoding='utf-8'))
+    assert digest(DATA / 'predictions.csv') == meta['prediction']['predictions_sha256']
     M, target, fmean = len(y), float(y.mean()), float(f.mean())
     e = y - f
     score_variance = float(f.var(ddof=1))
@@ -281,7 +284,7 @@ def evaluate():
                         'reference_prevalence': float(y[g].mean()), 'residual_sd': float(e[g].std(ddof=1))} for j, g in enumerate(groups)],
             'theoretical_srs': {str(n): {'labels': (1 - n/M) * float(y.var(ddof=1)) / n,
                                          'residual': (1 - n/M) * float(e.var(ddof=1)) / n} for n in BUDGETS},
-            'prediction_sha256': digest(OUT / 'predictions.csv'), 'script_sha256': digest(Path(__file__))}
+            'prediction_sha256': digest(DATA / 'predictions.csv'), 'script_sha256': digest(Path(__file__))}
     save_json('results.json', full)
     with (OUT / 'summary.csv').open('w', encoding='utf-8', newline='') as out:
         w = csv.DictWriter(out, fieldnames=list(summary[0]))
@@ -293,5 +296,9 @@ def evaluate():
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('stage', choices=['prepare', 'predict', 'evaluate'])
+    parser.add_argument("--data-dir", type=Path, help="Input data directory; prepare/predict default to outputs/sms-rescoring")
+    parser.add_argument("--output-dir", type=Path, default=OUT, help="Directory for newly computed sampling results")
     args = parser.parse_args()
+    DATA = (args.data_dir or (DATA if args.stage == "evaluate" else ROOT / "outputs/sms-rescoring")).resolve()
+    OUT = args.output_dir.resolve()
     globals()[args.stage]()

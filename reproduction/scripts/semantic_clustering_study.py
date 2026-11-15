@@ -1,8 +1,9 @@
 """Controlled relation-acquisition study for semantic_decision_statistics.tex.
 
 Constructed data and simulated judgments; no external model is queried.
-Requires NumPy. Run from any directory: python scripts/semantic_clustering_study.py
+Requires NumPy. Run from any directory: python reproduction/scripts/semantic_clustering_study.py
 """
+import argparse
 from pathlib import Path
 from itertools import combinations
 import csv
@@ -13,7 +14,7 @@ import platform
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "research" / "semantic_clustering"
+OUT = ROOT / "outputs" / "semantic_clustering"
 SEED = 20261005
 REPS = 1000
 BUDGETS = (12, 24, 36)
@@ -212,4 +213,8 @@ def main():
 
 
 if __name__ == "__main__":
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--output-dir", type=Path, default=OUT, help="Directory for newly simulated results")
+    args = parser.parse_args()
+    OUT = args.output_dir.resolve()
     main()

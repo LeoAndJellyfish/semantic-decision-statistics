@@ -14,7 +14,8 @@ from pathlib import Path
 import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
-OUT = ROOT / "research/title_case"
+DATA = ROOT / "data/title_case"
+OUT = ROOT / "outputs/title_case"
 MODELS = ("nb", "word2vec", "bert", "systemone", "tev1-nf4-zero-shot", "tev1_finetuned")
 PROBABILITY_MODELS = ("systemone", "tev1-nf4-zero-shot", "tev1_finetuned")
 COMMIT = "1b0ce28d265454680b5b383bbb7ff0929dca688b"
@@ -72,8 +73,8 @@ def import_case(source):
             for key in ("predicted_label", "score", "score_type"):
                 row[f"{name}_{key}"] = item[key]
         merged.append(row)
-    OUT.mkdir(parents=True, exist_ok=True)
-    with (OUT / "predictions.csv").open("w", encoding="utf-8", newline="") as stream:
+    DATA.mkdir(parents=True, exist_ok=True)
+    with (DATA / "predictions.csv").open("w", encoding="utf-8", newline="") as stream:
         writer = csv.DictWriter(stream, fieldnames=list(merged[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(merged)
@@ -104,7 +105,7 @@ def import_case(source):
     for run in (q4_run, nf4_run):
         files.extend(f"materials/results/runs/{run}/{name}.json" for name in ("config", "model", "manifest", "diagnostics"))
     files.extend(f"materials/results/runs/{nf4_run}/{name}.json" for name in ("selection", "explanation"))
-    write_json(OUT / "provenance.json", {
+    write_json(DATA / "provenance.json", {
         "source_repository": REPOSITORY, "source_commit": COMMIT, "source_date": "2026-10-06",
         "source_sha256": {rel: digest(source / rel) for rel in files},
         "dataset_manifest": dataset, "independent_archive_audit": {"partitions": partitions, "identity_overlaps": overlaps},
@@ -119,7 +120,7 @@ def import_case(source):
                            for key in ("started_at", "completed_at", "elapsed_seconds", "elapsed_scope")},
         "expected_test_metrics": {name: expected[name]["metrics"]["test"] for name in MODELS},
         "expected_probability_metrics": {name: expected[name]["metrics"]["probability"]["nonempty"] for name in PROBABILITY_MODELS},
-        "merged_predictions_sha256": digest(OUT / "predictions.csv"),
+        "merged_predictions_sha256": digest(DATA / "predictions.csv"),
         "merged_predictions_format": "The title_identity column contains group numbers assigned in order of first appearance.",
         "new_analysis": "metrics recomputation, conditional paired cluster bootstrap and error-cost comparison; no inference or training",
     })
@@ -154,10 +155,11 @@ def probability_metrics(y, p):
 
 
 def analyse(repetitions, seed):
-    with (OUT / "predictions.csv").open(encoding="utf-8", newline="") as stream:
+    OUT.mkdir(parents=True, exist_ok=True)
+    with (DATA / "predictions.csv").open(encoding="utf-8", newline="") as stream:
         rows = list(csv.DictReader(stream))
-    provenance = read_json(OUT / "provenance.json")
-    if digest(OUT / "predictions.csv") != provenance["merged_predictions_sha256"]:
+    provenance = read_json(DATA / "provenance.json")
+    if digest(DATA / "predictions.csv") != provenance["merged_predictions_sha256"]:
         raise ValueError("Frozen predictions changed")
     y = np.asarray([int(row["label"]) for row in rows])
     empty = np.asarray([bool(int(row["empty_title"])) for row in rows])
@@ -249,7 +251,9 @@ if __name__ == "__main__":
     parser.add_argument("--import-from", type=Path, help="Optional local checkout of the pinned source repository")
     parser.add_argument("--repetitions", type=int, default=10000)
     parser.add_argument("--seed", type=int, default=20261006)
+    parser.add_argument("--output-dir", type=Path, default=OUT, help="Directory for newly computed results")
     args = parser.parse_args()
+    OUT = args.output_dir.resolve()
     if args.import_from:
         import_case(args.import_from)
     analyse(args.repetitions, args.seed)

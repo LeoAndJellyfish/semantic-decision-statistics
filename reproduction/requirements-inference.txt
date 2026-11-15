@@ -1,0 +1,4 @@
+# SMS scoring environment recorded in data/sms/provenance.json.
+numpy==2.5.3
+onnxruntime==1.30.0
+tokenizers==0.23.2
