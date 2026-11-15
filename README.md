@@ -4,7 +4,7 @@
 
 **[下载论文 PDF](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics.pdf)　·　[下载复现材料 ZIP](https://github.com/LeoAndJellyfish/semantic-decision-statistics/releases/download/v2.1.0/semantic_decision_statistics_materials_v2.1.0.zip)**
 
-模型能识别提取到一半的论文标题吗？两条投诉涉及不同产品，是否可能源于同一种故障？论文从标题分类和投诉聚类出发，讨论自然语言判断怎样进入统计分析。标题案例使用真实测试记录，投诉案例使用九条构造记录和模拟判断。
+一条题名对应一个分类标签，两条投诉之间则可以记录一条同组关系。论文讨论按自然语言标准取得的标签、关系和等级怎样进入分类、聚类和测量。标题识别使用 1,000 条归档测试记录，投诉聚类使用九条构造记录和模拟判断。
 
 ## 数据与结果
 

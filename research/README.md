@@ -8,7 +8,7 @@ python -m pip install numpy==2.3.5
 
 ## 论文标题提取错误识别
 
-[逐条预测](title_case/predictions.csv)含 1,000 条测试记录。每行给出参考标签 `label`（1 为提取错误）、空标题标记 `empty_title`、归一化标题组编号 `title_identity`，以及六种方法的预测、分数和分数类型。24 条空标题按统一规则判为错误。`title_identity` 供分组重抽样使用。原题名、训练和验证分区、模型配置可从[课程项目固定版本](https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b)获取。
+[逐条预测](title_case/predictions.csv)含 1,000 条测试记录。每行给出参考标签 `label`（1 为提取错误）、空标题标记 `empty_title`、归一化标题组编号 `title_identity`，以及六种方法的预测、分数和分数类型。24 条空标题按统一规则判为错误。`title_identity` 供分组重抽样使用。原题名、训练和验证分区、模型配置可从[论文题名提取实验的固定版本](https://github.com/LeoAndJellyfish/paper-title-error-classification/tree/1b0ce28d265454680b5b383bbb7ff0929dca688b)获取。
 
 ```sh
 python scripts/title_case_analysis.py
